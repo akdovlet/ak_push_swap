@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:55:55 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/01 16:56:49 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:38:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ps_lstclear(t_list **lst, void (*del)(void *))
 	}
 }
 
-int	parse_av(t_list **lst, char *av)
+int	parse_av(t_list **lst, char *av, t_val *val)
 {
 	int	i;
 
@@ -44,9 +44,12 @@ int	parse_av(t_list **lst, char *av)
 			return (0);
 		if (av[i] && (ft_isdigit(av[i]) || av[i] == '-'))
 		{
+			if (av[i] == '-' && !ft_isdigit(av[i + 1]))
+				return (val->size = -1, 0);
 			ft_lstadd_back(lst, ft_lstnew((void *)ft_atol(av + i)));
+			val->size = val->size + 1;
 			if (!(*lst))
-				return (0);
+				return (val->size = -1, 0);
 			while (av[i] && (ft_isdigit(av[i]) || av[i] == '-'))
 				i++;
 		}
@@ -56,7 +59,7 @@ int	parse_av(t_list **lst, char *av)
 	return (1);
 }
 
-void	stack_creation(t_list **lst, char **av, int ac)
+int	stack_creation(t_list **lst, char **av, int ac, t_val *val)
 {
 	int		i;
 	int		err;
@@ -65,9 +68,21 @@ void	stack_creation(t_list **lst, char **av, int ac)
 	err = 1;
 	while (i < ac)
 	{
-		err = parse_av(lst, av[i]);
+		err = parse_av(lst, av[i], val);
 		if (!err)
-			return (ft_printf("Error\n"), ps_lstclear(lst, free)); 
+			return (ps_lstclear(lst, free), 0);
 		i++;
 	}
+	return (1);
+}
+
+int	duplicate_check(long *arr, int size)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size - 1)
+		if (arr[i] == arr[i + 1])
+			return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/01 17:32:40 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/06 18:08:29 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,23 @@ NAME 	=	push_swap
 LIBFT 	=	libft/libft.a
 PRINTF	=	printf/libftprintf.a
 
-SRCS 	:=	push_swap.c	\
-			parsing.c	\
-			main.c
+SRCS 	:=	parsing.c	\
+			main.c		\
+			swap.c		\
+			push.c		\
+			rotate.c	\
+			reverse_rotate.c	\
+			array.c				\
+			quicksort.c			\
+			error_check.c		\
+			print_array.c		\
+			indexing.c
 SRCS	:=	$(addprefix source/, $(SRCS))
 OBJS	:=	$(patsubst source/%.c, object/%.o,$(SRCS))
 DEPS	:=	$(OBJS:.o=.d)
 
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra -MMD -MP -Iinclude -Ilibft/include -Iprintf/include
+CFLAGS	=	-Wall -Werror -Wextra -MMD -MP -Iinclude -Ilibft/include -Iprintf/include -O3
 
 all: create_dirs $(NAME)
 
