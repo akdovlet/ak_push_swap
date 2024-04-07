@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:19:17 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/05 11:24:01 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:28:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ void	push_b(t_list **a, t_list **b)
 	*a = tmp;
 	ft_printf("pb\n");
 }
+

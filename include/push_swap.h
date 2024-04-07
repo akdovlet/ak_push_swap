@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:18:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/06 16:24:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/07 19:05:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ int		duplicate_check(long *arr, int size);
 void	print_array(long *tab, int size);
 void	indexing(t_list *lst, long *tab, int size);
 long	*parse_and_check(t_list **lst, char **av, int ac, t_val *val);
-t_list	*merge(t_list *a, t_list *b);
-void	merge_sort(t_list **lst);
-t_list	*slow_fast(t_list *lst);
+void 	solver(t_list **lst, long *tab, int size);
+void	sort_two(t_list **lst);
+void	sort_three(t_list **lst);
+void	sort_five(t_list **lst, long *tab, int size);
+void	sort(t_list **lst, long *tab, int size);
+int		is_sorted(t_list *lst);
+t_list	*highest(t_list *lst);
 
 #endif
