@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   int.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 11:47:46 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/09 17:42:17 by akdovlet         ###   ########.fr       */
+/*   Created: 2024/04/09 17:42:57 by akdovlet          #+#    #+#             */
+/*   Updated: 2024/04/12 19:06:28 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+#include <limits.h>
 
-long	ft_atol(const char *nptr)
+int	smallest(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+long	median(long *tab, int size)
+{
+	if (size % 2)
+		return (tab[size / 2]);
+	return (tab[size / 2 - 1] + tab[size / 2] / 2);
+}
+
+long	ak_atol(const char *nptr, t_val *val)
 {
 	int		i;
 	long	flip;
@@ -32,6 +47,8 @@ long	ft_atol(const char *nptr)
 	while (ft_isdigit(nptr[i]))
 	{
 		nb = nb * 10 + nptr[i] - 48;
+		if (nb > INT_MAX || nb < INT_MIN)
+			val->size = -1;
 		i++;
 	}
 	return (nb * flip);

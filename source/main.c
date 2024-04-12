@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/07 19:57:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:23:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 
 void	print_list(t_list *lst)
 {
+	
 	while (lst)
 	{
-		printf("value is: %ld\n", (long)lst->content);
+		printf("value is: %ld; ", (long)lst->content);
+		printf("rotate is: %ld; ", (long)lst->r);
+		printf("reverse rotate is: %ld; ", (long)lst->rr);
+		printf("ref number is: %ld; ", (long)lst->ref);
+		printf("total moves is: %d; ", lst->total);
+		printf("rotate all is: %ld; ", (long)lst->ra);
+		printf("reverse rotate all is: %ld\n", (long)lst->rra);
 		lst = lst->next;
 	}
 }
@@ -28,7 +35,7 @@ int	main(int ac, char **av)
 {
 	t_list	*lst;
 	t_val	aval;
-	t_list *stack_b;
+	t_list	*stack_b;
 	long	*tab;
 	int		i;
 
@@ -39,12 +46,20 @@ int	main(int ac, char **av)
 	aval.size = 0;
 	stack_b = NULL;
 	tab = parse_and_check(&lst, av, ac, &aval);
-	print_list(lst);
-	printf("\n");
 	if (!tab)
 		return (0);
-	solver(&lst, tab, aval.size);
-	print_list(lst);
-	ps_lstclear(&lst, free);
+	sort(&lst, &stack_b, &aval);
+	// print_list(lst);
+	// printf("========================\n");
+	print_list(stack_b);
+	printf("min is: %ld, max is: %ld\n", aval.min, aval.max);
+	printf("\n");
+	// solver(&lst, tab, aval.size);
+	// print_list(lst);
+	// ps_lstclear(&lst, free);
 	return (0);
 }
+
+
+// 7 5 41 23 69 -5
+// 9 1

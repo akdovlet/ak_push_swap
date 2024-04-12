@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 18:28:30 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/04 15:42:06 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:20:46 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	rotate_b(t_list **b, int bin)
 		ft_printf("rb\n");
 }
 
-void	rotate_a_b(t_list **a, t_list **b)
+void	rotate_all(t_list **a, t_list **b)
 {
 	rotate_a(a, 0);
 	rotate_b(b, 0);

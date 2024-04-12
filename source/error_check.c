@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 19:48:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/06 18:08:56 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:02:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,29 @@
 #include "libft.h"
 #include "ft_printf.h"
 
+void	*clear_free(t_list **lst, long *tab, int bin)
+{
+	ps_lstclear(lst, free);
+	ft_printf("Error\n");
+	if (bin)
+		free(tab);
+	return (NULL);
+}
+
 long	*parse_and_check(t_list **lst, char **av, int ac, t_val *val)
 {
 	long	*tab;
 
+	tab = NULL;
 	if (!stack_creation(lst, av, ac, val) || val->size == -1)
-	{
-		ps_lstclear(lst, free);
-		ft_printf("Error\n");
-		return (NULL);
-	}
+		return (clear_free(lst, tab, 0));
 	tab = copy_stack(*lst, val->size);
 	if (!tab)
-	{
-		ps_lstclear(lst, free);
-		ft_printf("Error\n");
-		return (NULL);
-	}
+		return (clear_free(lst, tab, 0));
 	ak_quicksort(tab, 0, val->size - 1);
 	if (!duplicate_check(tab, val->size))
-	{
-		ps_lstclear(lst, free);
-		free(tab);
-		ft_printf("Error\n");
-		return (NULL);
-	}
+		return (clear_free(lst, tab, 1));
 	indexing(*lst, tab, val->size);
+	val->median = median(tab, val->size);
 	return (tab);
 }

@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:05:42 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/01 11:51:50 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/12 16:16:47 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRCS =	ak_countword.c		\
 		get_next_line_utils.c	\
 		get_next_line_multi.c
 SRCS := $(addprefix srcs/, $(SRCS))
-OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
+OBJS := $(patsubst srcs/%.c,objs/%.o,$(SRCS))
+DEPS := 	$(OBJS:.o=.d)
 
 define AK
           :::     :::    :::   :::     ::::::::

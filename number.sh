@@ -18,3 +18,6 @@ done
 # Print the array of unique random numbers
 echo "${random_numbers[@]}"
 
+
+// ketrevis
+seq 100 200 | shuf | tr '\n' ' ' | xclip -sel clip

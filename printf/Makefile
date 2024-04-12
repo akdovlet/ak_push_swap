@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 23:52:43 by akdovlet          #+#    #+#              #
-#    Updated: 2024/01/03 21:03:36 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/12 16:16:11 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS := c_handler.c \
 SRCS := $(addprefix srcs/, $(SRCS))
 
 OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
+DEPS := 	$(OBJS:.o=.d)
 
 CC := cc
 CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iinclude
@@ -59,5 +60,7 @@ re: fclean all
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
+
+-include $(DEPS)
 
 .PHONY: all clean fclean re create_dirs main
