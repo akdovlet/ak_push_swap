@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:57:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/15 15:00:35 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/15 19:36:53 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	set_min_max(t_list **stack_b, t_val *val)
 	long	min;
 	long	max;
 
+	if (!(*stack_b))
+		return ;
 	tmp = *stack_b;
 	min = (long)tmp->content;
 	max = (long)tmp->content;
@@ -143,14 +145,25 @@ void	rotate_stacks(t_list **stack_a, t_list **stack_b, t_val *val)
 	}
 	while (*stack_a != cheap && cheap->index > val->amedian)
 		reverse_rotate_a(stack_a, 1);
+	while (cheap->target != *stack_b && cheap->target->index > val->bmedian)
+		reverse_rotate_b(stack_b, 1);
+	while (cheap->target != *stack_b && cheap->target->index < val->bmedian)
+		rotate_b(stack_b, 1);
+	push_b(stack_a, stack_b);
+	if ((long)(*stack_b)->content > val->max)
+		reverse_rotate_b(stack_b, 1);
+		
 }
 
 void	sort(t_list **stack_a, t_list **stack_b, t_val *val)
 {
 	push_b(stack_a, stack_b);
 	push_b(stack_a, stack_b);
-	set_min_max(stack_b, val);
-	cost_count(stack_a, stack_b, val);
-	b_cost_count(stack_b, val);
-	// push_cheapest(stack_a, stack_b);
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		set_min_max(stack_b, val);
+		cost_count(stack_a, stack_b, val);
+		b_cost_count(stack_b, val);
+		rotate_stacks(stack_a, stack_b, val);
+	}
 }

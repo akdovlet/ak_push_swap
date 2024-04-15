@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/15 18:34:51 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/15 19:10:08 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,18 @@ void	print_list(t_list *lst)
 	while (lst)
 	{
 		printf("value is: %ld; ", (long)lst->content);
-		printf("ref number is: %ld; ", (long)lst->target->content);
+		// printf("ref number is: %ld; ", (long)lst->target->content);
+		printf("moves: %d\n", lst->moves);
+		lst = lst->next;
+	}
+}
+
+void	print_b(t_list *lst)
+{
+	
+	while (lst)
+	{
+		printf("value is: %ld; ", (long)lst->content);
 		printf("moves: %d\n", lst->moves);
 		lst = lst->next;
 	}
@@ -46,7 +57,7 @@ int	main(int ac, char **av)
 	sort(&lst, &stack_b, &aval);
 	print_list(lst);
 	printf("========================\n");
-	print_list(stack_b);
+	print_b(stack_b);
 	printf("min is: %ld, max is: %ld\n", aval.min, aval.max);
 	printf("\n");
 	// solver(&lst, tab, aval.size);
