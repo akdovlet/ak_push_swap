@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:18:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/12 19:20:52 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/13 19:15:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct s_val
 	int		size;
 	long	min;
 	long	max;
-	long	median;
+	long	amedian;
+	long	bmedian;
 }	t_val;
 
 int		char_check(char c);

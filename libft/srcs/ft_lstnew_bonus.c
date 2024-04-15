@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:41:56 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/12 20:21:17 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:22:15 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,9 @@ t_list	*ft_lstnew(void *content)
 	if (!node)
 		return (NULL);
 	node->content = content;
-	node->max = 0;
-	node->min = 0;
-	node->r = 0;
-	node->rr = 0;
-	node->total = 0;
-	node->ra = 0;
-	node->rra = 0;
+	node->moves = 0;
 	node->ref = 0;
+	node->target = NULL;
 	node->next = NULL;
 	return (node);
 }

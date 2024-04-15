@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 19:48:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/12 20:02:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/13 19:17:10 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ long	*parse_and_check(t_list **lst, char **av, int ac, t_val *val)
 	if (!duplicate_check(tab, val->size))
 		return (clear_free(lst, tab, 1));
 	indexing(*lst, tab, val->size);
-	val->median = median(tab, val->size);
+	// val->median = median(tab, val->size);
 	return (tab);
 }

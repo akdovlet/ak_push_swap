@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:27:13 by adovleto          #+#    #+#             */
-/*   Updated: 2024/04/12 19:42:45 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:21:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,10 @@
 typedef struct s_list
 {
 	void			*content;
-	long	int		ref;
+	long			ref;
 	int				index;
-	int				r;
-	int				rr;
-	int				ra;
-	int				rra;
-	int				min;
-	int				max;
-	int				total;
+	int				moves;
+	struct s_list	*target;
 	struct s_list	*next;
 }	t_list;
 
