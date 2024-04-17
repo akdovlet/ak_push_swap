@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:47:00 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/04 15:42:24 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:28:17 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "ft_printf.h"
 #include "push_swap.h"
 
+// Shift down all elements of stack a by 1.
+//The last element becomes the first one.
 void	reverse_rotate_a(t_list **a, int bin)
 {
 	t_list	*last;
@@ -32,7 +34,9 @@ void	reverse_rotate_a(t_list **a, int bin)
 		ft_printf("rra\n");
 }
 
-void	reverse_rotate_b(t_list **b, int bin)
+// Shift down all elements of stack b by 1. 
+// The last element becomes the first one.
+void reverse_rotate_b(t_list **b, int bin)
 {
 	t_list	*last;
 	t_list	*tmp;

@@ -6,11 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:57:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/15 19:36:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:36:12 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
+#include <stdio.h>
 
 void	set_min_max(t_list **stack_b, t_val *val)
 {
@@ -38,42 +40,45 @@ void	set_min_max(t_list **stack_b, t_val *val)
 t_list	*target_node(long n, t_list **stack_b, t_val *val)
 {
 	t_list	*tmp;
+	t_list	*target;
+	long	max;
 
+	max = INT_MAX;
 	tmp = *stack_b;
 	if (n > val->max || n < val->min)
 		return (highest(*stack_b));
-	while (tmp->next)
+	while (tmp)
 	{
-		if (n > (long)tmp->content && n < (long)tmp->next->content)
-			return (tmp);
-		if (n < (long)tmp->content && n > (long)tmp->next->content)
-			return (tmp->next);
+		if (n > (long)tmp->content && n < max)
+		{
+			max = (long)tmp->content;
+			target = tmp;
+		}
+		if ((long)tmp->content > max && n > (long)tmp->content)
+		{
+			max = (long)tmp->content;
+			target = tmp;
+		}
 		tmp = tmp->next;
 	}
-	return (NULL);
+	return (target);
 }
 
-#include <stdio.h>
 // counts how much it costs to put a node at the top
 void	cost_count(t_list **stack_a, t_list **stack_b, t_val *val)
 {
 	int		i;
 	int		size;
-	int		rmoves;
 	t_list	*tmp;
 
 	i = 0;
 	tmp = *stack_a;
 	size = ft_lstsize(*stack_a);
 	val->amedian = size / 2;
-	if (size % 2)
-		rmoves = val->amedian;
-	else
-		rmoves = val->amedian - 1;
 	while (tmp)
 	{
 		if (i > val->amedian)
-			tmp->moves = rmoves--;
+			tmp->moves = size - i;
 		else
 			tmp->moves = i;
 		tmp->index = i;
@@ -87,21 +92,16 @@ void	b_cost_count(t_list **stack_b, t_val *val)
 {
 	int		i;
 	int		size;
-	int		rmoves;
 	t_list	*tmp;
 
 	i = 0;
 	tmp = *stack_b;
 	size = ft_lstsize(*stack_b);
 	val->bmedian = size / 2;
-	if (size % 2)
-		rmoves = val->bmedian;
-	else
-		rmoves = val->bmedian - 1;
 	while (tmp)
 	{
 		if (i > val->bmedian)
-			tmp->moves = rmoves--;
+			tmp->moves = size - i;
 		else
 			tmp->moves = i;
 		tmp->index = i;
@@ -135,35 +135,52 @@ void	rotate_stacks(t_list **stack_a, t_list **stack_b, t_val *val)
 	cheap = cheapest(stack_a);
 	i = cheap->index;
 	j = cheap->target->index;
-	while (*stack_a != cheap && (i > val->amedian && j > val->bmedian))
+	while ((*stack_a != cheap && *stack_b != cheap->target) && (i > val->amedian && j > val->bmedian))
 	{
 		reverse_rotate_all(stack_a, stack_b);
-		i--;
-		j--;
-		if (i < val->amedian || j < val->bmedian)
-			break ;
+		b_lst_indexing(stack_b, val);
+		a_lst_indexing(stack_a, val);
+	}
+	while ((*stack_a != cheap && *stack_b != cheap->target) && (i <= val->amedian && j <= val->bmedian))
+	{
+		rotate_all(stack_a, stack_b);
+		b_lst_indexing(stack_b, val);
+		a_lst_indexing(stack_a, val);
 	}
 	while (*stack_a != cheap && cheap->index > val->amedian)
 		reverse_rotate_a(stack_a, 1);
+	while (*stack_a != cheap && cheap->index <= val->amedian)
+		rotate_a(stack_a, 1);
 	while (cheap->target != *stack_b && cheap->target->index > val->bmedian)
 		reverse_rotate_b(stack_b, 1);
-	while (cheap->target != *stack_b && cheap->target->index < val->bmedian)
+	while (cheap->target != *stack_b && cheap->target->index <= val->bmedian)
 		rotate_b(stack_b, 1);
 	push_b(stack_a, stack_b);
-	if ((long)(*stack_b)->content > val->max)
-		reverse_rotate_b(stack_b, 1);
-		
 }
 
 void	sort(t_list **stack_a, t_list **stack_b, t_val *val)
 {
+	int		len;
+	t_list	*high;
+
 	push_b(stack_a, stack_b);
 	push_b(stack_a, stack_b);
-	while (ft_lstsize(*stack_a) > 3)
+	len = ft_lstsize(*stack_a);
+	while (len--)
 	{
 		set_min_max(stack_b, val);
 		cost_count(stack_a, stack_b, val);
 		b_cost_count(stack_b, val);
 		rotate_stacks(stack_a, stack_b, val);
 	}
+	high = highest(*stack_b);
+	if (*stack_b != high)
+		finish_rotate_b(stack_b, high, val);
+	// sort_three(stack_a);
+	while (*stack_b)
+	{
+		push_a(stack_a, stack_b);
+	}
 }
+
+

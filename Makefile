@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/13 18:37:28 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/16 22:03:24 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,14 @@ SRCS 	:=	parsing.c	\
 			indexing.c			\
 			solver.c			\
 			int.c				\
-			ataturk.c
+			ataturk.c			\
+			jade.c
 SRCS	:=	$(addprefix source/, $(SRCS))
 OBJS	:=	$(patsubst source/%.c, object/%.o,$(SRCS))
 DEPS	:=	$(OBJS:.o=.d)
 
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra -MMD -MP -Iinclude -Ilibft/include -Iprintf/include -g3
+CFLAGS	=	-MMD -MP -Iinclude -Ilibft/include -Iprintf/include -g3
 
 all: create_dirs $(NAME)
 
