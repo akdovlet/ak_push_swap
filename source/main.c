@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 00:11:01 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:21:51 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 	if (!tab)
 		return (0);
 	solver(&stack_a, &stack_b, &val, val.size);
-	print_b(stack_a);
+	// print_b(stack_a);
 	ps_lstclear(&stack_a, free);
 	free(tab);
 	return (0);

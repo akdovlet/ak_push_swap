@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/16 22:03:24 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/17 15:20:35 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SRCS 	:=	parsing.c	\
 			solver.c			\
 			int.c				\
 			ataturk.c			\
-			jade.c
+			jade.c				\
+			chechen_sort.c		\
+			intel_gathering.c
 SRCS	:=	$(addprefix source/, $(SRCS))
 OBJS	:=	$(patsubst source/%.c, object/%.o,$(SRCS))
 DEPS	:=	$(OBJS:.o=.d)

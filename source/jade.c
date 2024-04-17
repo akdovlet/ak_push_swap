@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:41:08 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/16 21:10:01 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:25:05 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,17 @@ void	finish_rotate_b(t_list **stack_b, t_list *high, t_val *val)
 			reverse_rotate_b(stack_b, 1);
 		else
 			rotate_b(stack_b, 1);
+	}
+}
+
+void	finish_rotate_a(t_list **stack_a, t_list *low, t_val *val)
+{
+	while (low != *stack_a)
+	{
+		if (low->index > val->amedian)
+			reverse_rotate_a(stack_a, 1);
+		else
+			rotate_a(stack_a, 1);
 	}
 }
 

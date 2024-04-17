@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:19:17 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/16 22:20:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:43:34 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	push_a(t_list **a, t_list **b)
 	ft_printf("pa\n");
 }
 
+// Take the first element at the top of a and put it at the top of b.
+// Do nothing if a is empty.
 void	push_b(t_list **a, t_list **b)
 {
 	t_list	*tmp;

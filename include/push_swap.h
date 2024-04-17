@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:18:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/16 23:20:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:18:52 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,23 @@ void	b_lst_indexing(t_list **stack_b, t_val *val);
 void	a_lst_indexing(t_list **stack_a, t_val *val);
 long	median(long *tab, int size);
 void	finish_rotate_b(t_list **stack_b, t_list *high, t_val *val);
+void	finish_rotate_a(t_list **stack_a, t_list *low, t_val *val);
 void	print_list(t_list *lst);
 void	print_b(t_list *lst);
+t_list	*target_node(long n, t_list **stack_b, t_val *val);
+void	set_min_max(t_list **stack_b, t_val *val);
+void	a_cost_count(t_list **stack_a, t_val *val);
+void	b_cost_count(t_list **stack_b, t_val *val);
+void	rotate_stacks(t_list **stack_a, t_list **stack_b, t_val *val);
+void	chechen_sort(t_list **stack_a, t_list **stack_b, t_val *val);
+t_list	*cheapest(t_list **stack);
+t_list	*lowest(t_list *lst);
+void	assign_target(t_list **hitter, t_list **target, t_val *val);
+t_list	*cheapest_q1(t_list **stack);
+t_list	*cheapest_q2(t_list *stack);
+t_list	*cheapest_q3(t_list *stack);
+t_list	*cheapest_q4(t_list *stack);
+
+void	pre_compute(t_list **stack_a, t_list **stack_b, t_val *val);
 
 #endif
