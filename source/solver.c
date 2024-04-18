@@ -6,14 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:33:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 17:07:12 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:46:14 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
-#include "ft_printf.h"
-
 
 void	solver(t_list **stack_a, t_list **stack_b, t_val *val, int size)
 {
@@ -38,7 +35,7 @@ void	sort_two(t_list **stack_a)
 
 void	sort_three(t_list **stack_a)
 {
-	t_list *max;
+	t_list	*max;
 
 	max = highest(*stack_a);
 	if (*stack_a == max)
@@ -59,5 +56,3 @@ int	is_sorted(t_list *stack_a)
 	}
 	return (1);
 }
-
-

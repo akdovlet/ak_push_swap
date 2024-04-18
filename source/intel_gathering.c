@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:17:35 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 15:18:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:48:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*highest(t_list *lst)
 	return (max);
 }
 
-t_list *lowest(t_list *lst)
+t_list	*lowest(t_list *lst)
 {
 	t_list	*min;
 

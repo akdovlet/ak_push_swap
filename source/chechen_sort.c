@@ -6,12 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:01:45 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 17:01:49 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:47:41 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Puts a hit out on the target
 void	assign_target(t_list **hitter, t_list **target, t_val *val)
 {
 	t_list	*soldier;
@@ -24,6 +25,7 @@ void	assign_target(t_list **hitter, t_list **target, t_val *val)
 	}
 }
 
+// Brings the package up top
 void	top_up(t_list **stack_a, t_list **stack_b, t_val *val)
 {
 	int		i;
@@ -33,9 +35,11 @@ void	top_up(t_list **stack_a, t_list **stack_b, t_val *val)
 	cheap = cheapest(stack_b);
 	j = cheap->index;
 	i = cheap->target->index;
-	while ((*stack_b != cheap && *stack_a != cheap->target) && (i > val->amedian && j > val->bmedian))
+	while ((*stack_b != cheap && *stack_a != cheap->target) && \
+			(i > val->amedian && j > val->bmedian))
 		reverse_rotate_all(stack_a, stack_b);
-	while ((*stack_b != cheap && *stack_a != cheap->target) && (i <= val->amedian && j <= val->bmedian))
+	while ((*stack_b != cheap && *stack_a != cheap->target) && \
+			(i <= val->amedian && j <= val->bmedian))
 		rotate_all(stack_a, stack_b);
 	while (*stack_b != cheap && cheap->index > val->bmedian)
 		reverse_rotate_b(stack_b, 1);
@@ -47,6 +51,7 @@ void	top_up(t_list **stack_a, t_list **stack_b, t_val *val)
 		rotate_a(stack_a, 1);
 }
 
+// Precomputes the stack. Does all the math and shit
 void	pre_compute(t_list **stack_a, t_list **stack_b, t_val *val)
 {
 	set_min_max(stack_a, val);
@@ -55,13 +60,13 @@ void	pre_compute(t_list **stack_a, t_list **stack_b, t_val *val)
 	assign_target(stack_b, stack_a, val);
 }
 
+// Stop asking questions
 void	chechen_sort(t_list **stack_a, t_list **stack_b, t_val *val)
 {
 	int		len;
 	t_list	*low;
 
 	len = ft_lstsize(*stack_a);
-
 	while (len-- > 3)
 	{
 		push_b(stack_a, stack_b);

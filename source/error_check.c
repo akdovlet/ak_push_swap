@@ -6,18 +6,16 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 19:48:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 15:52:13 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:21:04 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
-#include "ft_printf.h"
 
 void	*clear_free(t_list **lst, long *tab, int bin)
 {
 	ps_lstclear(lst, free);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	if (bin)
 		free(tab);
 	return (NULL);

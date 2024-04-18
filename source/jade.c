@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:41:08 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 15:25:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:45:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,3 @@ void	finish_rotate_a(t_list **stack_a, t_list *low, t_val *val)
 			rotate_a(stack_a, 1);
 	}
 }
-

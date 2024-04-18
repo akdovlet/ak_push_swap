@@ -6,12 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:46:24 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/09 17:35:29 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:19:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 #include "ft_printf.h"
 
 void	swap_a(t_list **lst, int bin)

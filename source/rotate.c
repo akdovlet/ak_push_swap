@@ -6,17 +6,16 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 18:28:30 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/16 22:26:59 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:45:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 #include "ft_printf.h"
 
 // Shift up all elements of stack a by 1.
 // The first element becomes the last one.
-void rotate_a(t_list **a, int bin)
+void	rotate_a(t_list **a, int bin)
 {
 	t_list	*tmp;
 
@@ -32,7 +31,7 @@ void rotate_a(t_list **a, int bin)
 
 // Shift up all elements of stack b by 1.
 // The first element becomes the last one.
-void rotate_b(t_list **b, int bin)
+void	rotate_b(t_list **b, int bin)
 {
 	t_list	*tmp;
 

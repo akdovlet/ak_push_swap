@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:42:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 17:22:38 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:39:21 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long	ak_atol(const char *nptr, t_val *val)
 	while (ft_isdigit(nptr[i]))
 	{
 		nb = nb * 10 + nptr[i] - 48;
-		if (nb > INT_MAX || nb < INT_MIN)
+		if (nb * flip > INT_MAX || nb * flip < INT_MIN)
 			val->size = -1;
 		i++;
 	}

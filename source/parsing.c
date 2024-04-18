@@ -6,13 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:55:55 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/11 12:37:20 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:18:40 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
-#include "ft_printf.h"
 
 int	char_check(char c)
 {

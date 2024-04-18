@@ -6,12 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:19:17 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 14:43:34 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:48:10 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 #include "ft_printf.h"
 
 // push a - take the first element at the top of b and put 
@@ -43,4 +42,3 @@ void	push_b(t_list **a, t_list **b)
 	*a = tmp;
 	ft_printf("pb\n");
 }
-
