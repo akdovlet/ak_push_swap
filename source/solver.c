@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:33:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 21:46:14 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:25:41 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ void	sort_two(t_list **stack_a)
 {
 	if ((long)(*stack_a)->content > (long)(*stack_a)->next->content)
 		swap_a(stack_a, 1);
+}
+
+t_list	*highest(t_list *lst)
+{
+	t_list	*max;
+
+	max = lst;
+	while (lst)
+	{
+		if ((long)lst->content > (long)max->content)
+			max = lst;
+		lst = lst->next;
+	}
+	return (max);
 }
 
 void	sort_three(t_list **stack_a)

@@ -6,18 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:55:55 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 21:18:40 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:41:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	char_check(char c)
-{
-	if (ft_isdigit(c) || c == '-' || c == 32)
-		return (1);
-	return (0);
-}
 
 void	ps_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -73,16 +66,5 @@ int	stack_creation(t_list **lst, char **av, int ac, t_val *val)
 			return (ps_lstclear(lst, free), 0);
 		i++;
 	}
-	return (1);
-}
-
-int	duplicate_check(long *arr, int size)
-{
-	int	i;
-
-	i = -1;
-	while (++i < size - 1)
-		if (arr[i] == arr[i + 1])
-			return (0);
 	return (1);
 }

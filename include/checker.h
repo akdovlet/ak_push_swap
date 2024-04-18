@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indexing.c                                         :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 14:14:28 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 21:17:59 by akdovlet         ###   ########.fr       */
+/*   Created: 2024/04/19 00:15:01 by akdovlet          #+#    #+#             */
+/*   Updated: 2024/04/19 01:52:56 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	indexing(t_list *lst, long *tab, int size)
-{
-	int	i;
+# include "push_swap.h"
 
-	while (lst)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if ((long)lst->content == tab[i])
-			{
-				lst->end = i;
-				break ;
-			}
-			i++;
-		}
-		lst = lst->next;
-	}
-}
+void	checker_driver(t_list **stack_a, t_list **stack_b);
+int		execute_orders(t_list **stack_a, t_list **stack_b, char *order);
+int		error(void);
+int		ft_strcmp(char *s1, char *s2);
+
+#endif

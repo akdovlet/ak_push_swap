@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 01:29:56 by akdovlet         ###   ########.fr       */
+/*   Created: 2024/04/18 23:11:34 by akdovlet          #+#    #+#             */
+/*   Updated: 2024/04/19 01:52:29 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "checker.h"
 
-// Use as such: ARG=$(seq 500 | shuf | tr '\n' ' ')
-// Then: ./push_swap $ARG | ./checker $ARG
+void	keep_reading(void)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(STDIN_FILENO);
+		if (!line)
+			return ;
+		free(line);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
@@ -23,15 +33,16 @@ int	main(int ac, char **av)
 	long	*tab;
 
 	if (ac == 1)
-		return (0);
+		return (keep_reading(), 0);
 	val.size = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	tab = parse_and_check(&stack_a, av, ac, &val);
 	if (!tab)
 		return (0);
-	solver(&stack_a, &stack_b, &val, val.size);
+	checker_driver(&stack_a, &stack_b);
 	ps_lstclear(&stack_a, free);
+	ps_lstclear(&stack_b, free);
 	free(tab);
 	return (0);
 }

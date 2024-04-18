@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:27:13 by adovleto          #+#    #+#             */
-/*   Updated: 2024/04/17 18:27:23 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:04:52 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@
 typedef struct s_list
 {
 	void			*content;
-	long			ref;
-	int				end;
-	bool			q1;
-	bool			q2;
-	bool			q3;
-	bool			q4;
 	int				index;
 	int				moves;
 	struct s_list	*target;

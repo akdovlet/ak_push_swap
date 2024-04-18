@@ -6,75 +6,38 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:41:08 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 21:45:55 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:20:39 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
-void	b_lst_indexing(t_list **stack_b, t_val *val)
+t_list	*target_node(long n, t_list **stack, t_val *val)
 {
-	int		i;
-	int		size;
-	int		rmoves;
 	t_list	*tmp;
+	t_list	*target;
+	long	min;
 
-	i = 0;
-	tmp = *stack_b;
-	size = ft_lstsize(*stack_b);
-	val->bmedian = size / 2;
-	if (size % 2)
-		rmoves = val->bmedian;
-	else
-		rmoves = val->bmedian - 1;
+	min = INT_MIN;
+	tmp = *stack;
+	if (n > val->max || n < val->min)
+		return (lowest(*stack));
 	while (tmp)
 	{
-		if (i > val->bmedian)
-			tmp->moves = rmoves--;
-		else
-			tmp->moves = i;
-		tmp->index = i;
-		i++;
+		if (n < (long)tmp->content && n > min)
+		{
+			min = (long)tmp->content;
+			target = tmp;
+		}
+		if ((long)tmp->content < min && n < (long)tmp->content)
+		{
+			min = (long)tmp->content;
+			target = tmp;
+		}
 		tmp = tmp->next;
 	}
-}
-
-void	a_lst_indexing(t_list **stack_a, t_val *val)
-{
-	int		i;
-	int		size;
-	int		rmoves;
-	t_list	*tmp;
-
-	i = 0;
-	tmp = *stack_a;
-	size = ft_lstsize(*stack_a);
-	val->amedian = size / 2;
-	if (size % 2)
-		rmoves = val->amedian;
-	else
-		rmoves = val->amedian - 1;
-	while (tmp)
-	{
-		if (i > val->amedian)
-			tmp->moves = rmoves--;
-		else
-			tmp->moves = i;
-		tmp->index = i;
-		i++;
-		tmp = tmp->next;
-	}
-}
-
-void	finish_rotate_b(t_list **stack_b, t_list *high, t_val *val)
-{
-	while (high != *stack_b)
-	{
-		if (high->index > val->bmedian)
-			reverse_rotate_b(stack_b, 1);
-		else
-			rotate_b(stack_b, 1);
-	}
+	return (target);
 }
 
 void	finish_rotate_a(t_list **stack_a, t_list *low, t_val *val)

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:46:24 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 21:19:58 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/19 00:24:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ void	swap_b(t_list **lst, int bin)
 		ft_printf("sb\n");
 }
 
-void	swap_a_b(t_list **a, t_list **b)
+void	swap_a_b(t_list **a, t_list **b, int bin)
 {
 	swap_a(a, 0);
 	swap_b(b, 0);
-	ft_printf("ss\n");
+	if (bin)
+		ft_printf("ss\n");
 }
