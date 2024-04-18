@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:57:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 19:19:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:07:47 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,60 +125,60 @@ t_list	*cheapest(t_list **stack)
 	return (cheapest);
 }
 
-void	rotate_stacks(t_list **stack_a, t_list **stack_b, t_val *val)
-{
-	t_list	*cheap;
-	int		i;
-	int		j;
+// void	rotate_stacks(t_list **stack_a, t_list **stack_b, t_val *val)
+// {
+// 	t_list	*cheap;
+// 	int		i;
+// 	int		j;
 
-	cheap = cheapest_q1(stack_a);
-	if (!cheap)
-		cheap = cheapest_q2(*stack_a);
-	if (!cheap)
-		cheap = cheapest_q3(*stack_a);
-	if (!cheap)
-		cheap = cheapest_q4(*stack_a);
-	i = cheap->index;
-	j = cheap->target->index;
-	while ((*stack_a != cheap && *stack_b != cheap->target) && (i > val->amedian && j > val->bmedian))
-		reverse_rotate_all(stack_a, stack_b);
-	while ((*stack_a != cheap && *stack_b != cheap->target) && (i <= val->amedian && j <= val->bmedian))
-		rotate_all(stack_a, stack_b);
-	while (*stack_a != cheap && cheap->index > val->amedian)
-		reverse_rotate_a(stack_a, 1);
-	while (*stack_a != cheap && cheap->index <= val->amedian)
-		rotate_a(stack_a, 1);
-	while (cheap->target != *stack_b && cheap->target->index > val->bmedian)
-		reverse_rotate_b(stack_b, 1);
-	while (cheap->target != *stack_b && cheap->target->index <= val->bmedian)
-		rotate_b(stack_b, 1);
-}
+// 	cheap = cheapest_q1(stack_a);
+// 	if (!cheap)
+// 		cheap = cheapest_q2(*stack_a);
+// 	if (!cheap)
+// 		cheap = cheapest_q3(*stack_a);
+// 	if (!cheap)
+// 		cheap = cheapest_q4(*stack_a);
+// 	i = cheap->index;
+// 	j = cheap->target->index;
+// 	while ((*stack_a != cheap && *stack_b != cheap->target) && (i > val->amedian && j > val->bmedian))
+// 		reverse_rotate_all(stack_a, stack_b);
+// 	while ((*stack_a != cheap && *stack_b != cheap->target) && (i <= val->amedian && j <= val->bmedian))
+// 		rotate_all(stack_a, stack_b);
+// 	while (*stack_a != cheap && cheap->index > val->amedian)
+// 		reverse_rotate_a(stack_a, 1);
+// 	while (*stack_a != cheap && cheap->index <= val->amedian)
+// 		rotate_a(stack_a, 1);
+// 	while (cheap->target != *stack_b && cheap->target->index > val->bmedian)
+// 		reverse_rotate_b(stack_b, 1);
+// 	while (cheap->target != *stack_b && cheap->target->index <= val->bmedian)
+// 		rotate_b(stack_b, 1);
+// }
 
-void	sort(t_list **stack_a, t_list **stack_b, t_val *val)
-{
-	int		len;
-	t_list	*high;
+// void	sort(t_list **stack_a, t_list **stack_b, t_val *val)
+// {
+// 	int		len;
+// 	t_list	*high;
 
-	push_b(stack_a, stack_b);
-	push_b(stack_a, stack_b);
-	len = ft_lstsize(*stack_a);
-	while (len--)
-	{
-		set_min_max(stack_b, val);
-		a_cost_count(stack_a, val);
-		b_cost_count(stack_b, val);
-		assign_target(stack_a, stack_b, val);
-		rotate_stacks(stack_a, stack_b, val);
-		push_b(stack_a, stack_b);
-	}
-	high = highest(*stack_b);
-	if (*stack_b != high)
-		finish_rotate_b(stack_b, high, val);
-	// sort_three(stack_a);
-	while (*stack_b)
-	{
-		push_a(stack_a, stack_b);
-	}
-}
+// 	push_b(stack_a, stack_b);
+// 	push_b(stack_a, stack_b);
+// 	len = ft_lstsize(*stack_a);
+// 	while (len--)
+// 	{
+// 		set_min_max(stack_b, val);
+// 		a_cost_count(stack_a, val);
+// 		b_cost_count(stack_b, val);
+// 		assign_target(stack_a, stack_b, val);
+// 		rotate_stacks(stack_a, stack_b, val);
+// 		push_b(stack_a, stack_b);
+// 	}
+// 	high = highest(*stack_b);
+// 	if (*stack_b != high)
+// 		finish_rotate_b(stack_b, high, val);
+// 	// sort_three(stack_a);
+// 	while (*stack_b)
+// 	{
+// 		push_a(stack_a, stack_b);
+// 	}
+// }
 
 

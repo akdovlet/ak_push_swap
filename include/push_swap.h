@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:18:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 19:18:52 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:52:21 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_val
 	long	max;
 	int		amedian;
 	int		bmedian;
+	long	median;
 }	t_val;
 
 int		char_check(char c);
@@ -75,5 +76,12 @@ t_list	*cheapest_q3(t_list *stack);
 t_list	*cheapest_q4(t_list *stack);
 
 void	pre_compute(t_list **stack_a, t_list **stack_b, t_val *val);
+
+// targeting
+void	assign_qtarget(t_list **hitter, t_list **target, t_val *val);
+t_list	*target_q1(long n, t_list **stack, t_val *val);
+t_list	*target_q2(long n, t_list **stack, t_val *val);
+t_list	*target_q3(long n, t_list **stack, t_val *val);
+t_list	*target_q4(long n, t_list **stack, t_val *val);
 
 #endif

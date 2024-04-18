@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:42:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/12 19:06:28 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:22:38 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	smallest(int a, int b)
 long	median(long *tab, int size)
 {
 	if (size % 2)
-		return (tab[size / 2]);
-	return (tab[size / 2 - 1] + tab[size / 2] / 2);
+		return (tab[(size - 1) / 2]);
+	return ((tab[(size - 2) / 2] + tab[(size - 1) / 2]) / 2);
 }
 
 long	ak_atol(const char *nptr, t_val *val)
@@ -51,5 +51,7 @@ long	ak_atol(const char *nptr, t_val *val)
 			val->size = -1;
 		i++;
 	}
+	if (!(nptr[i] >= 9 && nptr[i] <= 13) && nptr[i] != 32 && nptr[i] != '\0')
+		val->size = -1;
 	return (nb * flip);
 }

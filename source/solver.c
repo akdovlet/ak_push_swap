@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:33:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/17 16:08:40 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:07:12 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	solver(t_list **stack_a, t_list **stack_b, t_val *val, int size)
 		else if (size == 3)
 			sort_three(stack_a);
 	}
-	// else if (size <= 5)
-	// 	sort_five(stack_a, stack_b, val);
 	else
 		chechen_sort(stack_a, stack_b, val);
 }
@@ -55,7 +53,7 @@ int	is_sorted(t_list *stack_a)
 {
 	while (stack_a->next)
 	{
-		if ((long)stack_a->content < (long)stack_a->next->content)
+		if ((long)stack_a->content > (long)stack_a->next->content)
 			return (0);
 		stack_a = stack_a->next;
 	}
