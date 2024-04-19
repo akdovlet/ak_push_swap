@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 00:10:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 01:52:17 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:05:59 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	checker_driver(t_list **stack_a, t_list **stack_b)
 		if (!line)
 			break ;
 		if (!execute_orders(stack_a, stack_b, line))
-			return ;
+			return (free(line));
 		free(line);
 	}
 	if (is_sorted(*stack_a) && !*stack_b)

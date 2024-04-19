@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:55:55 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/18 22:41:03 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:12:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,17 @@ int	stack_creation(t_list **lst, char **av, int ac, t_val *val)
 {
 	int		i;
 	int		err;
+	int		control;
 
 	i = 1;
 	err = 1;
+	control = val->size;
 	while (i < ac)
 	{
 		err = parse_av(lst, av[i], val);
-		if (!err)
+		if (!err || control == val->size)
 			return (ps_lstclear(lst, free), 0);
+		control = val->size;
 		i++;
 	}
 	return (1);

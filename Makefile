@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/19 00:43:09 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/19 17:10:59 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(PRINTF):
 	@$(MAKE) -C printf
 
 object/%.o: source/%.c
-	@printf "\033[0;32%sm\tCompiling: $<\033[0m\n";
+	@printf "\033[0;32%sm\tCompiling: $<\033[0m\r";
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: all $(CHECK_NAME)
@@ -92,4 +92,4 @@ re: fclean all
 
 -include $(DEPS)
 
-.PHONY: all create_dirs clean fclean
+.PHONY: all create_dirs clean fclean bonus re 

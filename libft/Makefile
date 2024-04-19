@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:05:42 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/12 16:16:47 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/19 15:52:43 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,7 @@ create_dirs:
 	@if [ ! -d "objs" ]; then mkdir objs; fi
 
 objs/%.o: srcs/%.c
-		@printf "\033[0;32%sm\tCompiling: $<\033[0m\n";
+		@printf "\033[0;32%sm\tCompiling: $<\033[0m\r";
 		@$(CC) $(CFLAGS) -c $< -o $@;
 
 clean:

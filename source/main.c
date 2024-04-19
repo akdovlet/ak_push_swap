@@ -6,12 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 01:29:56 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:22:54 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 // Use as such: ARG=$(seq 500 | shuf | tr '\n' ' ')
 // Then: ./push_swap $ARG | ./checker $ARG
