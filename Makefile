@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/04/19 17:10:59 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/04/20 22:26:44 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ BONUS_OBJ	:=	$(patsubst source/%.c, object/%.o,$(BONUS_SRCS))
 DEPS		=	$(OBJS:.o=.d)
 
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -MMD -MP -Iinclude -Ilibft/include -Iprintf/include -g3
+CFLAGS		=	-Wall -Werror -Wextra -MMD -MP -Iinclude -Ilibft/include -Iprintf/include
 
 all: create_dirs $(NAME)
 
