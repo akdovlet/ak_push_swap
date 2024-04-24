@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:11:34 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 18:12:12 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:56:20 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 	long	*tab;
 
 	if (ac == 1)
-		return (keep_reading(), 0);
+		return (0);
 	val.size = 0;
 	stack_a = NULL;
 	stack_b = NULL;

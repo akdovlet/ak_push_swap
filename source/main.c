@@ -6,13 +6,14 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 17:22:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:43:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Use as such: ARG=$(seq 500 | shuf | tr '\n' ' ')
+// Or ARG=$(shuf -i 0-10000 -n 500 | tr '\n' ' ')
 // Then: ./push_swap $ARG | ./checker $ARG
 int	main(int ac, char **av)
 {

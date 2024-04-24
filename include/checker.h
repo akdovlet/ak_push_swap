@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 00:15:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 01:57:07 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:55:08 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	checker_driver(t_list **stack_a, t_list **stack_b);
 int		execute_orders(t_list **stack_a, t_list **stack_b, char *order);
 int		error(void);
 int		ft_strcmp(char *s1, char *s2);
+void	keep_reading(void);
 
 #endif

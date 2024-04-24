@@ -6,15 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:19:17 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/19 00:25:29 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:25:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ft_printf.h"
 
-// push a - take the first element at the top of b and put 
-// it at the top of a. Do nothing if b is empty.
 void	push_a(t_list **a, t_list **b, int bin)
 {
 	t_list	*tmp;
@@ -29,8 +27,6 @@ void	push_a(t_list **a, t_list **b, int bin)
 		ft_printf("pa\n");
 }
 
-// Take the first element at the top of a and put it at the top of b.
-// Do nothing if a is empty.
 void	push_b(t_list **a, t_list **b, int bin)
 {
 	t_list	*tmp;
