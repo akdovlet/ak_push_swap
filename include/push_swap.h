@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:18:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/05/01 17:54:12 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:38:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_val
 	int			bmedian;
 	int			median;
 }	t_val;
-
 
 /* ************************************************************************** */
 /* ******************************array.c************************************* */
@@ -98,7 +97,7 @@ void	set_min_max(t_stack **stack, t_val *val);
 // Finds the smallest node in the stack
 t_stack	*lowest(t_stack *lst);
 // Finds the cheapest node to move to the top
-t_stack	*cheapest(t_stack **stack, t_val * val);
+t_stack	*cheapest(t_stack **stack);
 // counts how much it costs to put a node at the top and 
 // assigns an index and a median to the stack_a
 void	a_cost_count(t_stack **stack_a, t_val *val);

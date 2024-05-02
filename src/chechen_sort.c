@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:01:45 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/05/01 14:43:34 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:36:48 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ void	assign_target(t_stack **hitter, t_stack **target, t_val *val)
 
 void	top_up(t_stack **stack_a, t_stack **stack_b, t_val *val)
 {
-	int		i;
-	int		j;
+	int		ci;
+	int		ti;
 	t_stack	*cheap;
 
-	cheap = cheapest(stack_b, val);
-	j = cheap->index;
-	i = cheap->target->index;
+	cheap = cheapest(stack_b);
+	ci = cheap->index;
+	ti = cheap->target->index;
 	while ((*stack_b != cheap && *stack_a != cheap->target) && \
-			(i > val->amedian && j > val->bmedian))
+			(ci > val->bmedian && ti > val->amedian))
 		reverse_rotate_all(stack_a, stack_b, 1);
 	while ((*stack_b != cheap && *stack_a != cheap->target) && \
-			(i <= val->amedian && j <= val->bmedian))
+			(ci <= val->bmedian && ti <= val->amedian))
 		rotate_all(stack_a, stack_b, 1);
 	while (*stack_b != cheap && cheap->index > val->bmedian)
 		reverse_rotate_b(stack_b, 1);
@@ -51,9 +51,9 @@ void	top_up(t_stack **stack_a, t_stack **stack_b, t_val *val)
 
 void	pre_compute(t_stack **stack_a, t_stack **stack_b, t_val *val)
 {
+	assign_target(stack_b, stack_a, val);
 	a_cost_count(stack_a, val);
 	b_cost_count(stack_b, val);
-	assign_target(stack_b, stack_a, val);
 }
 
 void	update_min_max(t_stack *stack_a, t_val *val)

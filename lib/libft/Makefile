@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:05:42 by akdovlet          #+#    #+#              #
-#    Updated: 2024/05/01 19:08:16 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/05/02 20:39:53 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,10 +95,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 		@$(CC) $(CFLAGS) -c $< -o $@;
 
 clean:
-	@if [ -d "$(OBJDIR)" ]; then $(RM) -rf $(OBJDIR) && echo "\033[1;31m$(NAME) .o files have been deleted\033[0m"; fi
+	@if [ -d "$(OBJDIR)" ]; then $(RM) -rf $(OBJDIR) && echo "\033[9;31m\tlibft $(OBJDIR)\033[0m"; fi
 
 fclean: clean
-	@if [ -f "libft.a" ]; then $(RM) -rf libft.a  && echo "\033[1;31m$(NAME) .a file has been deleted\033[0m"; fi
+	@if [ -f "$(NAME)" ]; then $(RM) -rf $(NAME)  && echo "\033[9;31m\t$(NAME)\033[0m"; fi
 
 re: fclean all
 
