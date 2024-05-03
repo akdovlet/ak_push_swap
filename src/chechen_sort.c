@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:01:45 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/05/02 20:36:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:41:17 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	chechen_sort(t_stack **stack_a, t_stack **stack_b, t_val *val)
 	{
 		push_b(stack_a, stack_b, 1);
 		val->bsize += 1;
-		if ((*stack_b)->nbr > val->median)
+		if ((*stack_b)->nbr >= val->median)
 			rotate_b(stack_b, 1);
 	}
 	sort_three(stack_a);

@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/05/02 21:41:31 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/05/03 14:51:50 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRCS 		:=	array.c				\
 SRCS		:=	$(addprefix $(SRCDIR)/, $(SRCS))
 OBJS		:=	$(patsubst $(SRCDIR)/%.c, $(BUILD)/%.o,$(SRCS))
 
-BONUS_SRCS	:=	checker.c			\
+BONUS_SRCS	:=	checker_main.c		\
 				checker_utils.c		\
 				array.c				\
 				chechen_sort.c		\
@@ -70,7 +70,7 @@ $(LIBFT):
 	@$(MAKE) -C $(LIBDIR)/libft
 
 $(BUILD)/%.o: $(SRCDIR)/%.c
-	@printf "\033[1;32%sm\tCompiling: $<\033[0m\n";
+	@printf "\033[1;32%sm\tCompiled: $<\033[0m\n";
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: create_dirs $(BONUS_NAME)
@@ -81,12 +81,12 @@ $(BONUS_NAME): $(BONUS_OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) $(BONUS_OBJ) $(PRINTF) $(LIBFT) -o $(BONUS_NAME)
 
 clean:
-	@if [ -d "$(BUILD)" ]; then $(RM) -rf $(BUILD) && echo "\033[9;31m\t$(NAME) $(BUILD)\033[0m"; fi
+	@if [ -d "$(BUILD)" ]; then $(RM) -rf $(BUILD) && echo "\033[1;31m\tDeleted: $(NAME) $(BUILD)\033[0m"; fi
 	@$(MAKE) --no-print-directory clean -C $(LIBDIR)/libft
 
 fclean: clean
-	@if [ -f "$(NAME)" ]; then $(RM) -rf $(NAME) && echo "\033[9;31m\t$(NAME)\033[0m"; fi
-	@if [ -f "$(BONUS_NAME)" ]; then $(RM) -rf $(BONUS_NAME) && echo "\033[9;31m\t$(BONUS_NAME)\033[0m"; fi
+	@if [ -f "$(NAME)" ]; then $(RM) -rf $(NAME) && echo "\033[1;31m\tDeleted: $(NAME)\033[0m"; fi
+	@if [ -f "$(BONUS_NAME)" ]; then $(RM) -rf $(BONUS_NAME) && echo "\033[1;31m\tDeleted: $(BONUS_NAME)\033[0m"; fi
 	@$(MAKE) --no-print-directory fclean -C $(LIBDIR)/libft
 
 re: fclean all
