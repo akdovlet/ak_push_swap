@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:22:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/30 17:02:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/05/02 22:01:24 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (1);
-	val.asize = 0;
-	val.bsize = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!parse_and_check(&stack_a, av, ac, &val))

@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/31 16:15:36 by akdovlet          #+#    #+#              #
-#    Updated: 2024/05/02 20:39:20 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/05/02 21:41:31 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ BONUS_OBJ	:=	$(patsubst $(SRCDIR)/%.c, $(BUILD)/%.o,$(BONUS_SRCS))
 DEPS		=	$(OBJS:.o=.d)
 
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -MMD -MP -Iinclude -I$(LIBDIR)/libft/include -g3
+CFLAGS		=	-Wall -Werror -Wextra -MMD -MP -Iinclude -I$(LIBDIR)/libft/include
 
 all: create_dirs $(NAME)
 
