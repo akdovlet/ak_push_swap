@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:33:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/04/29 16:21:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:34:41 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	sort_three(t_stack **stack_a)
 
 int	is_sorted(t_stack *stack_a)
 {
+	if (!stack_a)
+		return (0);
 	while (stack_a->next)
 	{
 		if (stack_a->nbr > stack_a->next->nbr)
